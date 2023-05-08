@@ -8,6 +8,7 @@ name = "headers"
 harness = false
 
 [dependencies]
+atoi = "2.0.0"
 bytes = "1.4.0"
 chumsky = "1.0.0-alpha.3"
 headers = "0.3.8"
