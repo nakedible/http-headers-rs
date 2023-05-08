@@ -45,10 +45,12 @@ pub fn naive_bytes(s: &[u8]) -> Result<u64, ()> {
     Ok(result)
 }
 
+fn atoi_test(s: &[u8]) -> Result<u64, ()> {
+    atoi::atoi(s).ok_or(())
+}
+
 fn criterion_benchmark(c: &mut Criterion) {
-    c.bench_function("str::parse", |b| {
-        b.iter(|| naive(black_box(b"0002342342")))
-    });
+    c.bench_function("str::parse", |b| b.iter(|| naive(black_box(b"0002342342"))));
     // c.bench_function("nux", |b| {
     //     b.iter(|| naive_bytes_and(black_box(b"0002342342342342")))
     // });
@@ -64,6 +66,7 @@ fn criterion_benchmark(c: &mut Criterion) {
     c.bench_function("str::parsex", |b| {
         b.iter(|| naive(black_box(b"0002342342")))
     });
+    c.bench_function("atoi", |b| b.iter(|| atoi_test(black_box(b"0002342342"))));
     // let mut headers = HeaderMap::new();
     // headers.insert(
     //     "Cache-Control",
