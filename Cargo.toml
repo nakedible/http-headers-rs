@@ -13,6 +13,7 @@ bytes = "1.4.0"
 chumsky = "1.0.0-alpha.3"
 headers = "0.3.8"
 http = "0.2.9"
+httpdate = "1.0.2"
 logos = "0.13.0"
 nom = "7.1.3"
 
